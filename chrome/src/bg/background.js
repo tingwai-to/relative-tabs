@@ -1,20 +1,19 @@
 function selectTab(offset) {
+    // grab all tabs in current window
     chrome.tabs.query({'currentWindow': true}, function (tabs) {
         activeTab = getActiveTabInfo(tabs);
-        activeIndex = parseInt(activeTab[0]);
+        activeIndex = activeTab[0];
         activeId = activeTab[1];
-        console.log('index: ' + activeIndex, 'id: ' + activeId, 'offset: ' + offset);
 
         if (activeIndex + offset >= tabs.length) {
             activeIndex = tabs.length - 1;
-            console.log('exceed length')
         } else if (activeIndex + offset < 0) {
             activeIndex = 0;
-            console.log('less than 0')
         } else {
             activeIndex += offset
         }
 
+        // switch to new active tab
         chrome.tabs.update(tabs[activeIndex].id, {'active': true});
     });
 }
@@ -23,7 +22,7 @@ function getActiveTabInfo(tabs) {
     for (var tabIndex in tabs) {
         var tab = tabs[tabIndex];
         if (tab.active) {
-            return [tabIndex, tab.id]
+            return [parseInt(tabIndex), tab.id]
         }
     }
 }
