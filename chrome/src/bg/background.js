@@ -42,24 +42,30 @@ let handleAction = (action, request = {}) => {
 };
 
 let prependTabPosition = (tab, number) => {
-    let id = tab.id;
-    let title = tab.title;
+    let tabId = tab.id;
+    let tabTitle = tab.title;
+    let tabUrl = tab.url;
+
+    // skip chrome pages
+    if (tabUrl.startsWith("chrome://")) {
+        return
+    }
 
     // expression for starts with numbers, followed by period and space
     regex_exp = "^[0-9]*[.][\\s]";
-    if (title.match(regex_exp)) {
+    if (tabTitle.match(regex_exp)) {
         // remove leading number, period, space
-        title = title.substr(title.indexOf('. ') + 2)
+        tabTitle = tabTitle.substr(tabTitle.indexOf('. ') + 2)
     }
 
     // prepend tab position
-    title = number + '. ' + title;
+    tabTitle = number + '. ' + tabTitle;
 
     // modify tab title
     try {
         chrome.tabs.executeScript(
-            id,
-            {code: "document.title = '" + title + "';"}
+            tabId,
+            {code: "document.title = '" + tabTitle + "';"}
         )
     } catch (e) {
     }
@@ -80,19 +86,19 @@ chrome.commands.onCommand.addListener(function (command) {
     handleAction(command)
 });
 
-chrome.tabs.onMoved.addListener(function () {
+chrome.tabs.onMoved.addListener(function (tabId, moveInfo) {
     updateAllTabs();
 });
 
-chrome.tabs.onRemoved.addListener(function () {
+chrome.tabs.onRemoved.addListener(function (tabId, removeInfo) {
     updateAllTabs();
 });
 
-chrome.tabs.onActivated.addListener(function () {
+chrome.tabs.onActivated.addListener(function (activeInfo) {
     updateAllTabs();
 });
 
-chrome.tabs.onUpdated.addListener(function () {
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     updateAllTabs();
 });
 
