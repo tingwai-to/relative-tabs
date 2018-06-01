@@ -1,0 +1,98 @@
+{
+  "name": "RelativeTabs",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Change tabs relative to current tab's position.",
+  "homepage_url": "",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": true
+  },
+  "permissions": [
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
+    }
+  ],
+  "commands": {
+    "prevTab_1": {
+      "description": "prevTab_1",
+      "suggested_key": {
+        "default": "Ctrl+Shift+1"
+      }
+    },
+    "nextTab_1": {
+      "description": "nextTab_1"
+    },
+    "prevTab_2": {
+      "description": "prevTab_2",
+      "suggested_key": {
+        "default": "Ctrl+Shift+2"
+      }
+    },
+    "nextTab_2": {
+      "description": "nextTab_2"
+    },
+    "prevTab_3": {
+      "description": "prevTab_3",
+      "suggested_key": {
+        "default": "Ctrl+Shift+3"
+      }
+    },
+    "nextTab_3": {
+      "description": "nextTab_3"
+    },
+    "prevTab_4": {
+      "description": "prevTab_4",
+      "suggested_key": {
+        "default": "Ctrl+Shift+4"
+      }
+    },
+    "nextTab_4": {
+      "description": "nextTab_4"
+    },
+    "prevTab_5": {
+      "description": "prevTab_5"
+    },
+    "nextTab_5": {
+      "description": "nextTab_5"
+    },
+    "prevTab_6": {
+      "description": "prevTab_6"
+    },
+    "nextTab_6": {
+      "description": "nextTab_6"
+    },
+    "prevTab_7": {
+      "description": "prevTab_7"
+    },
+    "nextTab_7": {
+      "description": "nextTab_7"
+    },
+    "prevTab_8": {
+      "description": "prevTab_8"
+    },
+    "nextTab_8": {
+      "description": "nextTab_8"
+    },
+    "prevTab_9": {
+      "description": "prevTab_9"
+    },
+    "nextTab_9": {
+      "description": "nextTab_9"
+    }
+  }
+}
