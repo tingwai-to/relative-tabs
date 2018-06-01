@@ -15,17 +15,9 @@
     "persistent": true
   },
   "permissions": [
-    "tabs"
-  ],
-  "content_scripts": [
-    {
-      "matches": [
-        "https://www.google.com/*"
-      ],
-      "js": [
-        "src/inject/inject.js"
-      ]
-    }
+    "tabs",
+    "http://*/*",
+    "https://*/*"
   ],
   "commands": {
     "prevTab_1": {
