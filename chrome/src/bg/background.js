@@ -1,5 +1,4 @@
-function selectTab(offset) {
-    // grab all tabs in current window
+function switchToNewTab(offset) {
     chrome.tabs.query({'currentWindow': true}, function (tabs) {
         let activeTabIndex = getActiveTabIndex(tabs);
 
@@ -25,41 +24,24 @@ function getActiveTabIndex(tabs) {
     }
 }
 
-let handleAction = (action, request = {}) => {
-    let parseAction = action.split('_');
-    let command = parseAction[0];
-    let argument = parseAction[1];
-
-    if (command === 'prevTab') {
-        offset = parseInt(argument);
-        selectTab(-offset)
-    } else if (command === 'nextTab') {
-        offset = parseInt(argument);
-        selectTab(offset)
+function isChromePage(url) {
+    if (url.startsWith("chrome://") || url.startsWith("chrome-extension://")) {
+        return true
     }
-};
+    return false
+}
 
-let prependTabPosition = (tab, number) => {
-    let tabId = tab.id;
-    let tabTitle = tab.title;
-    let tabUrl = tab.url;
-
-    // skip chrome pages
-    if (tabUrl.startsWith("chrome://") || tabUrl.startsWith("chrome-extension://")) {
-        return
-    }
-
+function removePrependFromTitle(title) {
     // expression for starts with numbers, followed by period and space
     let regex_exp = "^[0-9]*[.][\\s]";
-    if (tabTitle.match(regex_exp)) {
+    if (title.match(regex_exp)) {
         // remove leading number, period, space
-        tabTitle = tabTitle.substr(tabTitle.indexOf('. ') + 2)
+        title = title.substr(title.indexOf('. ') + 2)
     }
+    return title;
+}
 
-    // prepend tab position
-    tabTitle = number + '. ' + tabTitle;
-
-    // modify tab title
+function executeTabTitleChange(tabId, tabTitle) {
     try {
         chrome.tabs.executeScript(
             tabId,
@@ -67,18 +49,75 @@ let prependTabPosition = (tab, number) => {
         )
     } catch (e) {
     }
-};
+}
 
-function updateAllTabs() {
+function prependAllTabs() {
     chrome.tabs.query({'currentWindow': true}, function (tabs) {
-        activeTab = getActiveTabInfo(tabs);
-        activeIndex = activeTab[0];
+        activeTab = getActiveTabIndex(tabs);
+        activeIndex = activeTab;
 
         for (let i = 0; i < tabs.length; i++) {
             prependTabPosition(tabs[i], Math.abs(activeIndex - i))
         }
     });
 }
+
+let prependTabPosition = (tab, position) => {
+    let tabId = tab.id;
+    let tabTitle = tab.title;
+    let tabUrl = tab.url;
+
+    // skip chrome pages
+    if (isChromePage(tabUrl)) return;
+
+    tabTitle = removePrependFromTitle(tabTitle);
+    tabTitle = position + '. ' + tabTitle;  // prepend tab position
+    executeTabTitleChange(tabId, tabTitle)
+};
+
+function removePrependAllTabs () {
+    chrome.tabs.query({}, function (tabs) {
+        for (let i = 0; i < tabs.length; i++) {
+            removeTabPosition(tabs[i])
+        }
+    });
+}
+
+let removeTabPosition = (tab) => {
+    let tabId = tab.id;
+    let tabTitle = tab.title;
+    let tabUrl = tab.url;
+
+    // skip chrome pages
+    if (isChromePage(tabUrl)) return;
+
+    tabTitle = removePrependFromTitle(tabTitle);
+    executeTabTitleChange(tabId, tabTitle)
+};
+
+function updateAllTabs() {
+    let disableTabPosition = false;
+    chrome.storage.sync.get(['disableTabPosition'], function (result) {
+        disableTabPosition = result.disableTabPosition;
+        if (disableTabPosition) return;
+
+        prependAllTabs();
+    });
+}
+
+let handleAction = (action, request = {}) => {
+    let parseAction = action.split('_');
+    let command = parseAction[0];
+    let argument = parseAction[1];
+
+    if (command === 'prevTab') {
+        offset = parseInt(argument);
+        switchToNewTab(-offset)
+    } else if (command === 'nextTab') {
+        offset = parseInt(argument);
+        switchToNewTab(offset)
+    }
+};
 
 chrome.commands.onCommand.addListener(function (command) {
     handleAction(command)
