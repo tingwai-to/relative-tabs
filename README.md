@@ -18,6 +18,14 @@ Since Chrome extensions are limited to 4 keyboard shortcuts, the rest need to be
 | Previous Tab 2 | `Ctrl+Shift+2` |
 | Previous Tab \<num\> | `Ctrl+Shift+num` |
 
+## Install
+
+1. Clone repo
+2. Navigate to `chrome://extensions/` on Chrome
+3. Enable developer mode
+4. Click "Load Unpacked"
+5. Select `chrome` folder in `relative-tabs`
+
 ## Settings
 
 - Toggle tab numbering (enabled by default)
