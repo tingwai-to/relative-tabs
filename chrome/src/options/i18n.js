@@ -12,19 +12,19 @@ this.i18n = {
         <b>Recommended keyboard shortcuts</b>\
         <table>\
         <tr>\
-        <td>nextTab_1</td>\
+        <td>Next Tab 1</td>\
         <td>Ctrl+1</td>\
         </tr>\
         <tr>\
-        <td>nextTab_2</td>\
+        <td>Next Tab 2</td>\
         <td>Ctrl+2</td>\
         </tr>\
         <tr>\
-        <td>prevTab_1</td>\
+        <td>Previous Tab 1</td>\
         <td>Ctrl+Shift+1</td>\
         </tr>\
         <tr>\
-        <td>prevTab_2</td>\
+        <td>Previous Tab 2</td>\
         <td>Ctrl+Shift+2</td>\
         </tr>\
         <tr>\

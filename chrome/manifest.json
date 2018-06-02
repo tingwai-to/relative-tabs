@@ -2,7 +2,7 @@
   "name": "Relative Tabs",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "Change tabs relative to current tab's position.",
+  "description": "Switch tabs relative to current tab's position.",
   "homepage_url": "https://github.com/tingwai-to/relative-tabs",
   "icons": {
     "16": "icons/icon16.png",
@@ -23,70 +23,70 @@
   ],
   "commands": {
     "prevTab_1": {
-      "description": "prevTab_1",
+      "description": "Previous Tab 1",
       "suggested_key": {
         "default": "Ctrl+Shift+1"
       }
     },
     "nextTab_1": {
-      "description": "nextTab_1"
+      "description": "Next Tab 1"
     },
     "prevTab_2": {
-      "description": "prevTab_2",
+      "description": "Previous Tab 2",
       "suggested_key": {
         "default": "Ctrl+Shift+2"
       }
     },
     "nextTab_2": {
-      "description": "nextTab_2"
+      "description": "Next Tab 2"
     },
     "prevTab_3": {
-      "description": "prevTab_3",
+      "description": "Previous Tab 3",
       "suggested_key": {
         "default": "Ctrl+Shift+3"
       }
     },
     "nextTab_3": {
-      "description": "nextTab_3"
+      "description": "Next Tab 3"
     },
     "prevTab_4": {
-      "description": "prevTab_4",
+      "description": "Previous Tab 4",
       "suggested_key": {
         "default": "Ctrl+Shift+4"
       }
     },
     "nextTab_4": {
-      "description": "nextTab_4"
+      "description": "Next Tab 4"
     },
     "prevTab_5": {
-      "description": "prevTab_5"
+      "description": "Previous Tab 5"
     },
     "nextTab_5": {
-      "description": "nextTab_5"
+      "description": "Next Tab 5"
     },
     "prevTab_6": {
-      "description": "prevTab_6"
+      "description": "Previous Tab 6"
     },
     "nextTab_6": {
-      "description": "nextTab_6"
+      "description": "Next Tab 6"
     },
     "prevTab_7": {
-      "description": "prevTab_7"
+      "description": "Previous Tab 7"
     },
     "nextTab_7": {
-      "description": "nextTab_7"
+      "description": "Next Tab 7"
     },
     "prevTab_8": {
-      "description": "prevTab_8"
+      "description": "Previous Tab 8"
     },
     "nextTab_8": {
-      "description": "nextTab_8"
+      "description": "Next Tab 8"
     },
     "prevTab_9": {
-      "description": "prevTab_9"
+      "description": "Previous Tab 9"
     },
     "nextTab_9": {
-      "description": "nextTab_9"
+      "description": "Next Tab 9"
     }
   }
 }
