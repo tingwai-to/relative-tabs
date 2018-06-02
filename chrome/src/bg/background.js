@@ -1,36 +1,34 @@
 function selectTab(offset) {
     // grab all tabs in current window
     chrome.tabs.query({'currentWindow': true}, function (tabs) {
-        activeTab = getActiveTabInfo(tabs);
-        activeIndex = activeTab[0];
-        activeId = activeTab[1];
+        let activeTabIndex = getActiveTabIndex(tabs);
 
-        if (activeIndex + offset >= tabs.length) {
-            activeIndex = tabs.length - 1;
-        } else if (activeIndex + offset < 0) {
-            activeIndex = 0;
+        if (activeTabIndex + offset >= tabs.length) {
+            activeTabIndex = tabs.length - 1;
+        } else if (activeTabIndex + offset < 0) {
+            activeTabIndex = 0;
         } else {
-            activeIndex += offset
+            activeTabIndex += offset
         }
 
         // switch to new active tab
-        chrome.tabs.update(tabs[activeIndex].id, {'active': true});
+        chrome.tabs.update(tabs[activeTabIndex].id, {'active': true});
     });
 }
 
-function getActiveTabInfo(tabs) {
+function getActiveTabIndex(tabs) {
     for (let tabIndex in tabs) {
         let tab = tabs[tabIndex];
         if (tab.active) {
-            return [parseInt(tabIndex), tab.id]
+            return parseInt(tabIndex)
         }
     }
 }
 
 let handleAction = (action, request = {}) => {
-    parseAction = action.split('_');
-    command = parseAction[0];
-    argument = parseAction[1];
+    let parseAction = action.split('_');
+    let command = parseAction[0];
+    let argument = parseAction[1];
 
     if (command === 'prevTab') {
         offset = parseInt(argument);
@@ -47,12 +45,12 @@ let prependTabPosition = (tab, number) => {
     let tabUrl = tab.url;
 
     // skip chrome pages
-    if (tabUrl.startsWith("chrome://")) {
+    if (tabUrl.startsWith("chrome://") || tabUrl.startsWith("chrome-extension://")) {
         return
     }
 
     // expression for starts with numbers, followed by period and space
-    regex_exp = "^[0-9]*[.][\\s]";
+    let regex_exp = "^[0-9]*[.][\\s]";
     if (tabTitle.match(regex_exp)) {
         // remove leading number, period, space
         tabTitle = tabTitle.substr(tabTitle.indexOf('. ') + 2)
