@@ -82,7 +82,7 @@ let prependTabNumber = (tab, position) => {
     if (isChromePage(tabUrl)) return;
 
     tabTitle = removePrependFromTitle(tabTitle);
-    if (position !== 0) {
+    if (position > 0 && position <= 9) {
         tabTitle = unicodeNumbers[position] + ' ' + tabTitle;  // prepend tab position if not current tab
     }
     executeTabTitleChange(tabId, tabTitle)
