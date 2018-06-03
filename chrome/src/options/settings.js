@@ -1,7 +1,7 @@
 window.addEvent("domready", function () {
     new FancySettings.initWithManifest(function (settings) {
-        settings.manifest.disableTabPosition.addEvent("action", function (checkboxValue) {
-            chrome.storage.sync.set({'disableTabPosition': checkboxValue}, function () {});
+        settings.manifest.disableTabNumber.addEvent("action", function (checkboxValue) {
+            chrome.storage.sync.set({'disableTabNumber': checkboxValue}, function () {});
             if (checkboxValue) {
                 removePrependAllTabs();
             }

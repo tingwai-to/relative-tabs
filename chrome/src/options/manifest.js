@@ -11,9 +11,9 @@ this.manifest = {
         {
             "tab": i18n.get("general"),
             "group": i18n.get("options"),
-            "name": "disableTabPosition",
+            "name": "disableTabNumber",
             "type": "checkbox",
-            "label": "Disable adding tab position to tab title"
+            "label": "Disable adding numbering to tab title"
         },
     ],
     "alignment": [
