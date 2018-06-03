@@ -25,7 +25,8 @@
     "prevTab_1": {
       "description": "Previous Tab 1",
       "suggested_key": {
-        "default": "Ctrl+Shift+1"
+        "default": "Ctrl+Shift+1",
+        "mac": "MacCtrl+Shift+1"
       }
     },
     "nextTab_1": {
@@ -34,7 +35,8 @@
     "prevTab_2": {
       "description": "Previous Tab 2",
       "suggested_key": {
-        "default": "Ctrl+Shift+2"
+        "default": "Ctrl+Shift+2",
+        "mac": "MacCtrl+Shift+2"
       }
     },
     "nextTab_2": {
@@ -43,7 +45,8 @@
     "prevTab_3": {
       "description": "Previous Tab 3",
       "suggested_key": {
-        "default": "Ctrl+Shift+3"
+        "default": "Ctrl+Shift+3",
+        "mac": "MacCtrl+Shift+3"
       }
     },
     "nextTab_3": {
@@ -52,7 +55,8 @@
     "prevTab_4": {
       "description": "Previous Tab 4",
       "suggested_key": {
-        "default": "Ctrl+Shift+4"
+        "default": "Ctrl+Shift+4",
+        "mac": "MacCtrl+Shift+4"
       }
     },
     "nextTab_4": {

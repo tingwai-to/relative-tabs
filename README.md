@@ -8,15 +8,15 @@ By default, Relative Tabs will modify tabs to include its relative position from
 
 Since Chrome extensions are limited to 4 keyboard shortcuts, the rest need to be manually set in keyboard shortcuts `chrome://extensions/shortcuts`. Recommended keyboard shortcuts below:
 
-| Command Name | Shortcut |
-| --- | --- |
-| Next Tab 1 | `Ctrl+1` |
-| Next Tab 2 | `Ctrl+2` |
-| Next Tab \<num\> | `Ctrl+num` |
+| Command Name | Windows | Mac |
+| --- | :---: | :---: | 
+| Next Tab 1 | `Ctrl+1` | `MacCtrl+1` |
+| Next Tab 2 | `Ctrl+2` | `MacCtrl+2` |
+| Next Tab \<num\> | `Ctrl+num` | `MacCtrl+num` |
 | |
-| Previous Tab 1 | `Ctrl+Shift+1` | 
-| Previous Tab 2 | `Ctrl+Shift+2` |
-| Previous Tab \<num\> | `Ctrl+Shift+num` |
+| Previous Tab 1 | `Ctrl+Shift+1` | `MacCtrl+Shift+1` |
+| Previous Tab 2 | `Ctrl+Shift+2` | `MacCtrl+Shift+2` |
+| Previous Tab \<num\> | `Ctrl+Shift+num` |  `MacCtrl+Shift+num` |
 
 ## Install
 
@@ -25,6 +25,7 @@ Since Chrome extensions are limited to 4 keyboard shortcuts, the rest need to be
 3. Enable developer mode
 4. Click "Load Unpacked"
 5. Select `chrome` folder in `relative-tabs`
+6. Setup shortcuts at `chrome://extensions/shortcuts`
 
 ## Settings
 
