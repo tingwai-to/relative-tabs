@@ -6,13 +6,13 @@ window.addEvent("domready", function () {
                 removePrependAllTabs();
             }
             else {
-                updateAllTabs()
+                updateAllWindows()
             }
         });
 
         settings.manifest.tabNumCharacterStyle.addEvent("action", function (radioValue) {
             chrome.storage.sync.set({'tabNumCharacterStyle': parseInt(radioValue)}, function () {});
-            updateAllTabs()
+            updateAllWindows()
         });
     });
 });

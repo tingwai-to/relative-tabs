@@ -49,8 +49,8 @@ function executeTabTitleChange(tabId, tabTitle) {
     }
 }
 
-function prependAllTabs(characterStyle) {
-    chrome.tabs.query({'currentWindow': true}, function (tabs) {
+function prependAllTabs(windowId, characterStyle) {
+    chrome.tabs.query({'windowId': windowId}, function (tabs) {
         activeTab = getActiveTabIndex(tabs);
         activeIndex = activeTab;
 
@@ -95,14 +95,23 @@ let removeTabNumber = (tab) => {
     executeTabTitleChange(tabId, tabTitle)
 };
 
-function updateAllTabs() {
+function updateAllTabs(windowId) {
     let disableTabNumber = false;
     chrome.storage.sync.get(['disableTabNumber', 'tabNumCharacterStyle'], function (result) {
         disableTabNumber = result.disableTabNumber;
         tabNumCharacterStyle = result.tabNumCharacterStyle;
         if (disableTabNumber) return;
 
-        prependAllTabs(tabNumCharacterStyle);
+        prependAllTabs(windowId, tabNumCharacterStyle);
+    });
+}
+
+function updateAllWindows() {
+    chrome.windows.getAll({}, function (windows) {
+        for (let i = 0; i < windows.length; i++) {
+            windowId = windows[i].id;
+            updateAllTabs(windowId)
+        }
     });
 }
 
@@ -125,19 +134,19 @@ chrome.commands.onCommand.addListener(function (command) {
 });
 
 chrome.tabs.onMoved.addListener(function (tabId, moveInfo) {
-    updateAllTabs();
+    updateAllTabs(moveInfo.windowId);
 });
 
 chrome.tabs.onRemoved.addListener(function (tabId, removeInfo) {
-    updateAllTabs();
+    updateAllTabs(removeInfo.windowId);
 });
 
 chrome.tabs.onActivated.addListener(function (activeInfo) {
-    updateAllTabs();
+    updateAllTabs(activeInfo.windowId);
 });
 
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-    updateAllTabs();
+    updateAllTabs(tab.windowId);
 });
 
 updateAllTabs();
