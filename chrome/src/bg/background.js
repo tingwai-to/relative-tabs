@@ -16,19 +16,15 @@ function switchToNewTab(offset) {
 }
 
 function getActiveTabIndex(tabs) {
-    for (let tabIndex in tabs) {
-        let tab = tabs[tabIndex];
-        if (tab.active) {
-            return parseInt(tabIndex)
+    for (let i = 0; i < tabs.length; i++) {
+        if (tabs[i].active) {
+            return i
         }
     }
 }
 
 function isChromePage(url) {
-    if (url.startsWith("chrome://") || url.startsWith("chrome-extension://")) {
-        return true
-    }
-    return false
+    return url.startsWith("chrome://") || url.startsWith("chrome-extension://")
 }
 
 function removePrependFromTitle(title) {
@@ -70,7 +66,7 @@ let prependTabNumber = (tab, characterStyle, position) => {
 
     tabTitle = removePrependFromTitle(tabTitle);
     if (position > 0 && position <= 9) {
-        tabTitle = allCharacterStyles[characterStyle][position] + ' ' + tabTitle;  // prepend tab position if not current tab
+        tabTitle = allCharacterStyles[characterStyle][position] + ' ' + tabTitle;
     }
     executeTabTitleChange(tabId, tabTitle)
 };
