@@ -9,6 +9,11 @@ window.addEvent("domready", function () {
                 updateAllTabs()
             }
         });
+
+        settings.manifest.tabNumCharacterSet.addEvent("action", function (radioValue) {
+            chrome.storage.sync.set({'tabNumCharacterSet': radioValue}, function () {});
+            updateAllTabs()
+        });
     });
 });
 
