@@ -12,26 +12,46 @@ this.i18n = {
         <b>Recommended keyboard shortcuts</b>\
         <table>\
         <tr>\
-        <td>Next Tab 1</td>\
-        <td>Ctrl+1</td>\
+            <th>Command Name</th>\
+            <th>Windows</th>\
+            <th>Mac</th>\
         </tr>\
         <tr>\
-        <td>Next Tab 2</td>\
-        <td>Ctrl+2</td>\
+            <td>Next Tab 1</td>\
+            <td>Ctrl+1</td>\
+            <td>MacCtrl+1</td>\
         </tr>\
         <tr>\
-        <td>Previous Tab 1</td>\
-        <td>Ctrl+Shift+1</td>\
+            <td>Next Tab 2</td>\
+            <td>Ctrl+2</td>\
+            <td>MacCtrl+2</td>\
         </tr>\
         <tr>\
-        <td>Previous Tab 2</td>\
-        <td>Ctrl+Shift+2</td>\
+            <td>Next Tab \<num\></td>\
+            <td>Ctrl+num</td>\
+            <td>MacCtrl+num</td>\
         </tr>\
         <tr>\
-        <td>so on...</td>\
-    <td class='tg-yw4l'></td>\
-    </tr>\
-    </table>"
+            <td></td>\
+            <td></td>\
+            <td></td>\
+        </tr>\
+        <tr>\
+            <td>Previous Tab 1</td>\
+            <td>Ctrl+Shift+1</td>\
+            <td>MacCtrl+Shift+1</td>\
+        </tr>\
+        <tr>\
+            <td>Previous Tab 2</td>\
+            <td>Ctrl+Shift+2</td>\
+            <td>MacCtrl+Shift+2</td>\
+        </tr>\
+        <tr>\
+            <td>Previous Tab \<num\></td>\
+            <td>Ctrl+Shift+num</td>\
+            <td>MacCtrl+Shift+num</td>\
+        </tr>\
+        </table>"
     },
     "general": {
         "en": "General"
