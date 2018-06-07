@@ -42,6 +42,4 @@ this.manifest = {
             ]
         }
     ],
-    "alignment": [
-    ]
 };

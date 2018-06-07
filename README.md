@@ -2,7 +2,7 @@
 
 Chrome extension for switching to a tab n-places from current tab. For example `Ctrl+3` will switch to the tab that is 3 tabs ahead (right) of your current tab. Similarly `Ctrl+Shift+2` will switch to the tab that is 2 tabs behind (left) of your current tab.
 
-By default, Relative Tabs will modify tabs to include its relative position from the current active tab. This can be disabled in extension options `chrome://extensions/`.
+Relative Tabs can modify tabs to include its relative position from the current active tab. This can be toggled in extension options `chrome://extensions/`.
 
 ![tab numbering](docs/chrome_tab_numbering.png)
 
@@ -29,5 +29,6 @@ Since Chrome extensions are limited to 4 keyboard shortcuts, the rest need to be
 
 ## Settings
 
-- Toggle tab numbering (enabled by default)
 - Set keyboard shortcuts
+- Toggle tab numbering
+- Multiple styles for tab numbering

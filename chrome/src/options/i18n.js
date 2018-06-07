@@ -27,7 +27,7 @@ this.i18n = {
             <td>MacCtrl+2</td>\
         </tr>\
         <tr>\
-            <td>Next Tab \<num\></td>\
+            <td>Next Tab &lt;num&gt;</td>\
             <td>Ctrl+num</td>\
             <td>MacCtrl+num</td>\
         </tr>\
@@ -47,7 +47,7 @@ this.i18n = {
             <td>MacCtrl+Shift+2</td>\
         </tr>\
         <tr>\
-            <td>Previous Tab \<num\></td>\
+            <td>Previous Tab &lt;num&gt;</td>\
             <td>Ctrl+Shift+num</td>\
             <td>MacCtrl+Shift+num</td>\
         </tr>\
